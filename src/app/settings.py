@@ -1,38 +1,52 @@
 """
-FastAPI settings for project.
-
-Configure app level variables here.
+Settings for app project.
 """
 
-import os
 from pathlib import Path
-
-from dotenv import load_dotenv
 
 from app.__version__ import __version__
 
-# Load environment variables from .env file.
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).parent.parent
-
-# Build log path to be used within the application.
 LOG_DIR = BASE_DIR.parent / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = ")uki4xv@9e!b2^rax@qfcmp5#=^^*ziemm^tl1jv+f2nf9e#)$"  # nosec: B105
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG") == "True"
+DEBUG = True
 
-# Databases
+# Application definition
+ASGI_APPLICATION = "app.asgi.application"
+
+# Database settings
 DATABASES = {
-    "default": os.environ.get("DATABASE_URI"),
+    "default": {
+        "url": "sqlite+aiosqlite:///db.sqlite3",
+    }
 }
 
-# Logging
+# Internationalization
+TIME_ZONE = "UTC"
+USE_TZ = True
+
+# OpenAPI settings
+OPENAPI = {
+    "title": "App Title",
+    "summary": "App Summary.",
+    "description": "App as a base for new projects.",
+    "version": __version__,
+    "openapi_url": "/schema/" if DEBUG else None,
+    "docs_url": "/schema/swagger/" if DEBUG else None,
+    "redoc_url": "/schema/redoc/" if DEBUG else None,
+    "license": {
+        "name": "MIT",
+    },
+}
+
+
+# Logging config
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -61,15 +75,6 @@ LOGGING = {
             "handlers": ["file", "console"],
             "level": "DEBUG",
             "propagate": True,
-        }
+        },
     },
-}
-
-# OpenAPI
-OPENAPI = {
-    "openapi_url": "/openapi.json" if DEBUG else "",
-    "title": "App",
-    "description": "App Description",
-    "contact": "",
-    "version": __version__,
 }
