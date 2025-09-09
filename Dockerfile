@@ -1,5 +1,5 @@
-# Use Python 3.13 Slim Bookworm as base image
-FROM python:3.13-slim-bookworm
+# Use Python 3.13 Slim Trixie as base image
+FROM python:3.13-slim-trixie
 
 # Set username, home path and venv path
 ARG USERNAME=app
