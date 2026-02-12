@@ -1,14 +1,18 @@
-from sqlalchemy import BigInteger, Column
-from sqlalchemy.ext.asyncio import AsyncAttrs
-from sqlalchemy.orm import DeclarativeBase
+from sqlmodel import BigInteger, Column, Field, SQLModel
+from typing_extensions import Optional
 
 
-class Model(AsyncAttrs, DeclarativeBase):
+class Model(SQLModel):
     """Base: Model"""
 
     __abstract__ = True
 
-    id = Column(BigInteger, primary_key=True, autoincrement=True, nullable=False)
+    id: Optional[int] = Field(
+        default=None,
+        sa_column=Column(
+            BigInteger(), primary_key=True, autoincrement=True, nullable=False
+        ),
+    )
 
     @property
     def pk(self) -> None | int | str | tuple:

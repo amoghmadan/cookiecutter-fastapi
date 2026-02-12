@@ -2,7 +2,7 @@ from sqlalchemy import Result, TextClause, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.dependencies import DBSes
-from app.schemas.domain.response import Pong
+from app.schemas.response import Pong
 
 
 async def pong(db: AsyncSession = DBSes) -> Pong:
