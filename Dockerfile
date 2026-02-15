@@ -13,8 +13,8 @@ RUN apt update && apt install -y git
 RUN groupadd -r $USERNAME && useradd -r -g $USERNAME -m -d $HOME $USERNAME
 
 # Set the working directory to the app location and change ownership
-WORKDIR $HOME/app-service
-RUN chown -R $USERNAME:$USERNAME $HOME/app-service
+WORKDIR $HOME/app
+RUN chown -R $USERNAME:$USERNAME $HOME/app
 
 # Switch to the new user
 USER $USERNAME
@@ -25,4 +25,4 @@ ENV PATH="$VENV_PATH/bin:$PATH"
 
 # Copy the application code and install dependencies
 COPY --chown=$USERNAME:$USERNAME . .
-RUN pip install -e ".[deployment]"
+RUN pip install -e .

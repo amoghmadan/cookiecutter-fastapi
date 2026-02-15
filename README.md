@@ -13,11 +13,11 @@ Kick-starter to your REST application.
     - Unix-like: `. venv\bin\activate`
 - Install dependencies: -
   ```bash
-  pip install . -e '.[automation,sqlite,test]'
+  pip install . -e '.[automation,test]'
   ```
 - Run: -
   ```bash
-  uvicorn app.asgi:application --reload
+  app runserver
   ```
 
 ## How to set up project for deployment?
@@ -31,7 +31,7 @@ Kick-starter to your REST application.
     - Unix-like: `. venv\bin\activate`
 - Install dependencies: -
   ```bash
-  pip install -e '.[sqlite,deployment]'
+  pip install -e .
   ```
 - Run: -
   ```bash
