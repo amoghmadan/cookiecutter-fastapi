@@ -14,7 +14,7 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
     "Framework :: FastAPI",
-    "Framework :: FastAPI :: 0.116.1",
+    "Framework :: FastAPI :: 0.129.0",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
