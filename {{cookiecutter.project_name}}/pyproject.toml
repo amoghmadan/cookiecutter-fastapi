@@ -80,7 +80,7 @@ dependencies = [
 ]
 
 [project.scripts]
-app = "{{cookiecutter.project_name}}.__main__:main"
+{{cookiecutter.project_name}} = "{{cookiecutter.project_name}}.__main__:main"
 
 [project.urls]
 Homepage = "https://github.com/amoghmadan/Python-FastAPI-REST-Starter"
