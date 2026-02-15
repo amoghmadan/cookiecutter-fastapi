@@ -8,7 +8,7 @@ from pydantic._internal._model_construction import ModelMetaclass
 
 from app.conf import global_settings
 
-ENVIRONMENT_VARIABLE = "SETTINGS_MODULE"
+ENVIRONMENT_VARIABLE = "FASTAPI_SETTINGS_MODULE"
 
 
 def settings_from_module(module: str) -> ModelMetaclass:

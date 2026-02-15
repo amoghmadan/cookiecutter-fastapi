@@ -8,9 +8,9 @@ from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
-from sqlmodel import SQLModel
+from sqlmodel import SQLModel  # noqa: F401
 
-os.environ.setdefault("SETTINGS_MODULE", "app.settings")
+os.environ.setdefault("FASTAPI_SETTINGS_MODULE", "app.settings")
 
 from app.conf import settings  # noqa: E402
 from app.db import DEFAULT_DB_ALIAS, models  # noqa: E402

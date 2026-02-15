@@ -2,7 +2,7 @@ from typing import Awaitable, Callable
 
 from fastapi import Request, Response
 
-from app.dependencies.session_maker import AliasedSessionMaker
+from app.db import DEFAULT_DB_ALIAS
 
 
 async def database_middleware(
@@ -14,8 +14,7 @@ async def database_middleware(
     :param call_next: Callable[[Request], Awaitable[Response]]
     :return: Response
     """
-    aliased_session_maker = AliasedSessionMaker()
-    session_class = aliased_session_maker(request)
+    session_class = request.app.state.sessions[DEFAULT_DB_ALIAS]
     async with session_class() as session:
         request.state.db = session
         response = await call_next(request)

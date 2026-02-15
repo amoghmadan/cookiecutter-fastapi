@@ -3,7 +3,7 @@ import os
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("SETTINGS_MODULE", "app.settings")
+    os.environ.setdefault("FASTAPI_SETTINGS_MODULE", "app.settings")
     try:
         from app.core.management import execute_from_command_line
     except ImportError as exc:

@@ -1,5 +1,7 @@
-from app.core.management.commands import runserver
+from typer import Typer
 
-commands = [runserver.app]
+from app.core.management.commands import loaddata, runserver, shell
+
+commands: list[Typer] = [loaddata.cli, runserver.cli, shell.cli]
 
 __all__ = ["commands"]

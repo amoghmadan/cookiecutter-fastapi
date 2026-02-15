@@ -1,10 +1,10 @@
 import typer
 import uvicorn
 
-app = typer.Typer()
+cli = typer.Typer()
 
 
-@app.command()
-def runserver(host: str = "127.0.0.1", port: int = 8000) -> None:
+@cli.command()
+def runserver(ctx: typer.Context, host: str = "127.0.0.1", port: int = 8000) -> None:
     """Run server."""
-    uvicorn.run("app.asgi:application", host=host, port=port, reload=True)
+    uvicorn.run("app.asgi:application", host=host, port=port, reload=ctx.obj["debug"])

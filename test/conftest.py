@@ -1,3 +1,3 @@
 import os
 
-os.environ.setdefault("SETTINGS_MODULE", "app.settings")
+os.environ.setdefault("FASTAPI_SETTINGS_MODULE", "app.settings")
