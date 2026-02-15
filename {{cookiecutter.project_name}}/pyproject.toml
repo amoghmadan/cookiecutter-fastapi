@@ -83,9 +83,9 @@ dependencies = [
 {{cookiecutter.project_name}} = "{{cookiecutter.project_name}}.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/amoghmadan/Python-FastAPI-REST-Starter"
-Repository = "https://github.com/amoghmadan/Python-FastAPI-REST-Starter"
-Issues = "https://github.com/amoghmadan/Python-FastAPI-REST-Starter/issues"
+Homepage = "https://github.com/amoghmadan/cookiecutter-fastapi"
+Repository = "https://github.com/amoghmadan/cookiecutter-fastapi"
+Issues = "https://github.com/amoghmadan/cookiecutter-fastapi/issues"
 
 
 [project.optional-dependencies]
