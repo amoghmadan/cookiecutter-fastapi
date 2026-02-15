@@ -1,39 +1,51 @@
-# Python FastAPI REST Starter
+# Cookiecutter FastAPI
 
-Kick-starter to your REST application.
+Use this template to create a FastAPI Python project.
 
-## How to set up project for development?
+## How to use?
 
-- Create a virtual environment: -
+- Set-up base.
   ```bash
-  python -m venv venv
+  cookiecutter https://github.com/amoghmadan/cookiecutter-fastapi.git
   ```
-- Activate: -
-    - Windows: `venv\Scripts\activate`
-    - Unix-like: `. venv\bin\activate`
-- Install dependencies: -
-  ```bash
-  pip install . -e '.[automation,test]'
+- Follow the prompts to customize your project.
   ```
-- Run: -
-  ```bash
-  app runserver
+  [1/4] project_name (app): play
+  [2/4] project_description (Example application): Play with cookie cutter.
+  [3/4] author_name (Your Name): Your Name
+  [4/4] author_email (your@email.com): your@email.com
   ```
 
-## How to set up project for deployment?
+## Set-up?
 
-- Create a virtual environment: -
+- Initialize Git, it is very important for the project to work.
   ```bash
-  python -m venv venv
+  git init -b main
   ```
-- Activate: -
-    - Windows: `venv\Scripts\activate`
-    - Unix-like: `. venv\bin\activate`
-- Install dependencies: -
+- Create a virtual environment.
   ```bash
-  pip install -e .
+  python3.13 -m venv .venv
   ```
-- Run: -
+- Activate the virtual environment.
+    ```bash
+    source .venv/bin/activate
+    ```
+- Install the dependencies (you can select database from mysql, postgres, sqlite).
   ```bash
-  gunicorn app:asgi:application -b 0.0.0.0:8000 -w 4 -k uvicorn.workers.UvicornWorker --log-level INFO
+  pip install -e '.[automation,test]'
+  ```
+
+## How to run?
+
+- Run the server.
+  ```bash
+  {{project_name}} runserver
+  ```
+- Load JSON data (fixtures) into your models.
+  ```bash
+  {{project_name}} loaddata <file>.json
+  ```
+- Run the python shell (with application context).
+  ```bash
+  {{project_name}} shell
   ```
