@@ -3,7 +3,7 @@ import os
 from types import ModuleType
 from typing import Any
 
-from pydantic import create_model
+from pydantic import ConfigDict, create_model
 from pydantic._internal._model_construction import ModelMetaclass
 
 from {{cookiecutter.project_name}}.conf import global_settings
@@ -32,7 +32,9 @@ def settings_from_module(module: str) -> ModelMetaclass:
             value = getattr(mod, attr)
             fields[attr.lower()] = (type(value), value)
 
-    return create_model("Settings", **fields)
+    return create_model(
+        "Settings", __config__=ConfigDict(arbitrary_types_allowed=True), **fields
+    )
 
 
 settings_module: str | None = os.environ.get(ENVIRONMENT_VARIABLE)
