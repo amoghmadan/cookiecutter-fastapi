@@ -14,7 +14,7 @@ async def database_middleware(
     :param call_next: Callable[[Request], Awaitable[Response]]
     :return: Response
     """
-    session_class = request.{{cookiecutter.project_name}}.state.sessions[DEFAULT_DB_ALIAS]
+    session_class = request.app.state.sessions[DEFAULT_DB_ALIAS]
     async with session_class() as session:
         request.state.db = session
         response = await call_next(request)
